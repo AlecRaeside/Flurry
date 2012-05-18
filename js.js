@@ -22,7 +22,9 @@ window.onload=function() {
 
 		Fl.emitter = {
 			x:100,
-			y:100
+			y:100,
+			vx:1,
+			vy:1
 		}
 
 
@@ -65,6 +67,8 @@ var drawRadialGradient = function(x, y, size, colourA, colourB) {
 var Particle = function() {
 	this.x=Fl.emitter.x;
 	this.y=Fl.emitter.y;
+	this.vx=Fl.emitter.vx;
+	this.vy=Fl.emitter.vy;
 	this.age=1;
 	this.size=60;
 	this.colour = new hsla(0,50,50,1);
@@ -75,6 +79,7 @@ var Particle = function() {
 			this.colour.alpha = 0.8-(decayer)
 		} else {
 			this.colour.alpha = 0;
+			FL.particles.pop()
 		}
 	}
 }
